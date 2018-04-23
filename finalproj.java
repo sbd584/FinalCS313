@@ -85,6 +85,7 @@ PFont font;
 String string1 = " Hello and Welcome ";;
 String string2 = " Click To to Continue ";
 int gui2Timer;
+int gui2Timer2;
 int gui2TimerCycle;
 int textWidth;
 
@@ -123,6 +124,7 @@ void draw() {
     textSize(100);
     fill(0, 102, 153);
     gui2Timer += 1;
+    gui2Timer2 += 1;
     gui2TimerCycle += 0;
 
     int string_char = int(gui2Timer/5);
@@ -261,7 +263,7 @@ void mouseClicked() {
       play = 0;
     }
   }
-  if(GUI_change < 2){
+  if(gui2Timer2 > gui2Timer){
     GUI_change = 2;
   }
 

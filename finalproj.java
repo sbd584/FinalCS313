@@ -103,6 +103,25 @@ int mk10Click = 0;
 int mk11Click = 0;
 int mk12Click = 0;
 int mk13Click = 0;
+int l1Click = 0;
+int l2Click = 0;
+int l3Click = 0;
+int l4Click = 0;
+int l5Click = 0;
+int l6Click = 0;
+int top1Click = 0;
+int top2Click = 0;
+int top3Click = 0;
+int top4Click = 0;
+int top5Click = 0;
+int top6Click = 0;
+int top7Click = 0;
+int top8Click = 0;
+int top9Click = 0;
+int top10Click = 0;
+int top11Click = 0;
+int top12Click = 0;
+int top13Click = 0;
 int clickCount = 0;
 Wave wave1;
 float mute = 0;
@@ -253,11 +272,228 @@ void draw() {
     // Left keys
     fill(300,200,200);
     rect(100,450,50,500);
+    if(l1Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(100,450,50,500);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        l1Click = 0;
+      }
+    }
+    fill(300,200,200);
     rect(350,450,50,500);
+    if(l2Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(350,450,50,500);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        l2Click = 0;
+      }
+    }
+    fill(300,200,200);
     rect(700,450,50,500);
+    if(l3Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(700,450,50,500);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        l3Click = 0;
+      }
+    }
+    fill(300,200,200);
     rect(950,450,50,500);
+    if(l4Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(950,450,50,500);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        l4Click = 0;
+      }
+    }
+    fill(300,200,200);
     rect(1300,450,50,500);
+    if(l5Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1300,450,50,500);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        l5Click = 0;
+      }
+    }
+    fill(300,200,200);
     rect(1550,450,50,500);
+    if(l6Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1550,450,50,500);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        l6Click = 0;
+      }
+    }
+
+    // White peices
+    if(top1Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(150,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top1Click = 0;
+      }
+    }
+    if(top2Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(250,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top2Click = 0;
+      }
+    }
+    if(top3Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(400,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top3Click = 0;
+      }
+    }
+    if(top4Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(500,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top4Click = 0;
+      }
+    }
+    if(top5Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(600,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top5Click = 0;
+      }
+    }
+    if(top6Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(750,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top6Click = 0;
+      }
+    }
+    if(top7Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(850,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top7Click = 0;
+      }
+    }
+    if(top8Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1000,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top8Click = 0;
+      }
+    }
+    if(top9Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1100,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top9Click = 0;
+      }
+    }
+    if(top10Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1200,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top10Click = 0;
+      }
+    }
+    if(top11Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1350,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top11Click = 0;
+      }
+    }
+    if(top12Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1450,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top12Click = 0;
+      }
+    }
+    if(top13Click == 1){
+      if(clickCount <= 10){
+        fill(0);
+        rect(1600,450,50,300);
+        clickCount += 1;
+      }
+      else{
+        clickCount = 0;
+        top13Click = 0;
+      }
+    }
+
 
     wave1.display();
     wave1.moveWave();
@@ -415,8 +651,8 @@ void draw() {
 void mouseClicked() {
   // Record
   if(dist (315,120,mouseX,mouseY) <= 50){
-    if (record == 0 ) {
-      record = 255;
+    if (record_dot < 255 ) {
+      record = 0;
       record_dot = 255;
       // 50
     }
@@ -582,4 +818,162 @@ void mouseClicked() {
     }
   }
 
+  // l1
+  if(mouseX >= 100 && mouseX <= 50+100 && mouseY >= 450  && mouseY <= 950){
+    if (l1Click == 0){
+      l1Click = 1;
+    }
+    else {
+      l1Click = 0;
+    }
+  }
+  if(mouseX >= 350 && mouseX <= 50+350 && mouseY >= 450  && mouseY <= 950){
+    if (l2Click == 0){
+      l2Click = 1;
+    }
+    else {
+      l2Click = 0;
+    }
+  }
+  if(mouseX >= 700 && mouseX <= 50+700 && mouseY >= 450  && mouseY <= 950){
+    if (l3Click == 0){
+      l3Click = 1;
+    }
+    else {
+      l3Click = 0;
+    }
+  }
+  if(mouseX >= 950 && mouseX <= 50+950 && mouseY >= 450  && mouseY <= 950){
+    if (l4Click == 0){
+      l4Click = 1;
+    }
+    else {
+      l4Click = 0;
+    }
+  }
+  if(mouseX >= 1300 && mouseX <= 50+1300 && mouseY >= 450  && mouseY <= 950){
+    if (l5Click == 0){
+      l5Click = 1;
+    }
+    else {
+      l5Click = 0;
+    }
+  }
+  if(mouseX >= 1550 && mouseX <= 50+1550 && mouseY >= 450  && mouseY <= 950){
+    if (l6Click == 0){
+      l6Click = 1;
+    }
+    else {
+      l6Click = 0;
+    }
+  }
+
+  // Top Whites
+  // rect(150,450,50,300);
+  if(mouseX >= 150 && mouseX <= 50+150 && mouseY >= 450  && mouseY <= 750){
+    if (top1Click == 0){
+      top1Click = 1;
+    }
+    else {
+      top1Click = 0;
+    }
+  }
+
+  if(mouseX >= 250 && mouseX <= 50+250 && mouseY >= 450  && mouseY <= 750){
+    if (top2Click == 0){
+      top2Click = 1;
+    }
+    else {
+      top2Click = 0;
+    }
+  }
+  if(mouseX >= 400 && mouseX <= 50+400 && mouseY >= 450  && mouseY <= 750){
+    if (top3Click == 0){
+      top3Click = 1;
+    }
+    else {
+      top3Click = 0;
+    }
+  }
+  if(mouseX >= 500 && mouseX <= 50+500 && mouseY >= 450  && mouseY <= 750){
+    if (top4Click == 0){
+      top4Click = 1;
+    }
+    else {
+      top4Click = 0;
+    }
+  }
+  if(mouseX >= 600 && mouseX <= 50+600 && mouseY >= 450  && mouseY <= 750){
+    if (top5Click == 0){
+      top5Click = 1;
+    }
+    else {
+      top5Click = 0;
+    }
+  }
+  if(mouseX >= 750 && mouseX <= 50+750 && mouseY >= 450  && mouseY <= 750){
+    if (top6Click == 0){
+      top6Click = 1;
+    }
+    else {
+      top6Click = 0;
+    }
+  }
+
+  if(mouseX >= 850 && mouseX <= 50+850 && mouseY >= 450  && mouseY <= 750){
+    if (top7Click == 0){
+      top7Click = 1;
+    }
+    else {
+      top7Click = 0;
+    }
+  }
+  if(mouseX >= 1000 && mouseX <= 50+1000 && mouseY >= 450  && mouseY <= 750){
+    if (top8Click == 0){
+      top8Click = 1;
+    }
+    else {
+      top8Click = 0;
+    }
+  }
+  if(mouseX >= 1100 && mouseX <= 50+1100 && mouseY >= 450  && mouseY <= 750){
+    if (top9Click == 0){
+      top9Click = 1;
+    }
+    else {
+      top9Click = 0;
+    }
+  }
+  if(mouseX >= 1200 && mouseX <= 50+1200 && mouseY >= 450  && mouseY <= 750){
+    if (top10Click == 0){
+      top10Click = 1;
+    }
+    else {
+      top10Click = 0;
+    }
+  }
+  if(mouseX >= 1350 && mouseX <= 50+1350 && mouseY >= 450  && mouseY <= 750){
+    if (top11Click == 0){
+      top11Click = 1;
+    }
+    else {
+      top11Click = 0;
+    }
+  }
+  if(mouseX >= 1450 && mouseX <= 50+1450 && mouseY >= 450  && mouseY <= 750){
+    if (top12Click == 0){
+      top12Click = 1;
+    }
+    else {
+      top12Click = 0;
+    }
+  }
+  if(mouseX >= 1600 && mouseX <= 50+1600 && mouseY >= 450  && mouseY <= 750){
+    if (top13Click == 0){
+      top13Click = 1;
+    }
+    else {
+      top13Click = 0;
+    }
+  }
 }

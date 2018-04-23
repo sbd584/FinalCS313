@@ -159,18 +159,20 @@ void draw() {
 }
 
 void mouseClicked() {
-  if(mouseX <= 365 && mouseX >= 265 && mouseY <= 170 && mouseY >= 70){
+  // ellipse(315, 120, 100, 100);
+  if(dist (315,120,mouseX,mouseY) <= 50){
     if (record == 0 ) {
       record = 255;
       record_dot = 255;
+      // 50
     }
     else {
       record = 0;
       record_dot = 0;
     }
   }
-
-  if(mouseX <= 365 && mouseX >= 265 && mouseY <= 170 && mouseY >= 70){
+  // ellipse(1600, 140, 125, 125);
+  if(dist (1600,140,mouseX,mouseY) <= (125/2)){
     if (mute == 0 ) {
       mute = 105;
     }
@@ -179,7 +181,8 @@ void mouseClicked() {
     }
   }
 
-  if(mouseX <= 365 && mouseX >= 265 && mouseY <= 170 && mouseY >= 70){
+  // ellipse(200, 110, 75, 75);
+  if(dist (200,110,mouseX,mouseY) <= (75/2)){
         if (stop == 0 ) {
       stop = 145;
     }
@@ -187,7 +190,9 @@ void mouseClicked() {
       stop = 0;
     }
   }
-  if(mouseX <= 365 && mouseX >= 265 && mouseY <= 170 && mouseY >= 70){
+
+  //   ellipse(125, 110, 75, 75);
+  if(dist (125,110,mouseX,mouseY) <= (75/2)){
         if (play == 0 ) {
       play = 90;
     }

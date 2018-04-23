@@ -353,7 +353,7 @@ void draw() {
         clickCount = 0;
         l1Click = 0;
       }
-      waveN = 1;
+      waveN = 14;
     }
     fill(300,200,200);
     rect(350,450,50,500);
@@ -368,7 +368,7 @@ void draw() {
         clickCount = 0;
         l2Click = 0;
       }
-      waveN = 4;
+      waveN = 15;
     }
     fill(300,200,200);
     rect(700,450,50,500);
@@ -383,7 +383,7 @@ void draw() {
         clickCount = 0;
         l3Click = 0;
       }
-      waveN = 8;
+      waveN = 16;
     }
     fill(300,200,200);
     rect(950,450,50,500);
@@ -397,7 +397,7 @@ void draw() {
         clickCount = 0;
         l4Click = 0;
       }
-      waveN = 11;
+      waveN = 17;
     }
     fill(300,200,200);
     rect(1300,450,50,500);
@@ -411,7 +411,7 @@ void draw() {
         clickCount = 0;
         l5Click = 0;
       }
-      waveN = 15;
+      waveN = 18;
     }
     fill(300,200,200);
     rect(1550,450,50,500);
@@ -425,7 +425,7 @@ void draw() {
         clickCount = 0;
         l6Click = 0;
       }
-      waveN = 18;
+      waveN = 19;
     }
 
     // White peices
@@ -598,7 +598,7 @@ void draw() {
         clickCount = 0;
         mk1Click = 0;
       }
-      waveN = 2;
+      waveN = 1;
     }
     // mk2
     if(mk2Click == 1){
@@ -610,7 +610,7 @@ void draw() {
         clickCount = 0;
         mk2Click = 0;
       }
-      waveN = 3;
+      waveN = 2;
     }
     // mk3
     if(mk3Click == 1){
@@ -622,7 +622,7 @@ void draw() {
         clickCount = 0;
         mk3Click = 0;
       }
-      waveN = 5;
+      waveN = 3;
     }
     // mk4
     if(mk4Click == 1){
@@ -634,7 +634,7 @@ void draw() {
         clickCount = 0;
         mk4Click = 0;
       }
-      waveN = 6;
+      waveN = 4;
     }
     // mk5
     if(mk5Click == 1){
@@ -646,7 +646,7 @@ void draw() {
         clickCount = 0;
         mk5Click = 0;
       }
-      waveN = 7;
+      waveN = 5;
     }
     // mk6
     if(mk6Click == 1){
@@ -658,7 +658,7 @@ void draw() {
         clickCount = 0;
         mk6Click = 0;
       }
-      waveN = 9;
+      waveN = 6;
     }
     // mk7
     if(mk7Click == 1){
@@ -670,7 +670,7 @@ void draw() {
         clickCount = 0;
         mk7Click = 0;
       }
-      waveN = 10;
+      waveN = 7;
     }
     // mk8
     if(mk8Click == 1){
@@ -682,7 +682,7 @@ void draw() {
         clickCount = 0;
         mk8Click = 0;
       }
-      waveN = 12;
+      waveN = 8;
     }
     // mk9
     if(mk9Click == 1){
@@ -694,7 +694,7 @@ void draw() {
         clickCount = 0;
         mk9Click = 0;
       }
-      waveN = 13;
+      waveN = 9;
     }
     // mk10
     if(mk10Click == 1){
@@ -706,7 +706,7 @@ void draw() {
         clickCount = 0;
         mk10Click = 0;
       }
-      waveN = 14;
+      waveN = 10;
     }
     // mk11
     if(mk11Click == 1){
@@ -718,7 +718,7 @@ void draw() {
         clickCount = 0;
         mk11Click = 0;
       }
-      waveN = 16;
+      waveN = 11;
     }
     // mk12
     if(mk12Click == 1){
@@ -730,7 +730,7 @@ void draw() {
         clickCount = 0;
         mk12Click = 0;
       }
-      waveN = 17;
+      waveN = 12;
     }
     // mk13
     if(mk13Click == 1){
@@ -742,7 +742,7 @@ void draw() {
         clickCount = 0;
         mk13Click = 0;
       }
-      waveN = 19;
+      waveN = 13;
     }
 
     // Wave

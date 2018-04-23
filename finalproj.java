@@ -32,14 +32,15 @@ Middle_key(float x, float y, float c){
 class Wave{
   PShape wave;
   int start, end;
-  float depth, amplitude, phaseShift, x, y;
+  float depth, amplitude, phaseShift, x, y, speed;
 
-  Wave(int start, int end, float depth, float amplitude, float phaseShift){
+  Wave(int start, int end, float depth, float amplitude, float phaseShift, float speed){
       this.start = start;
       this.end = end;
       this.depth = depth;
       this.amplitude = amplitude;
       this.phaseShift = phaseShift;
+      this.speed = speed;
   }
 
   void display(){
@@ -60,7 +61,7 @@ class Wave{
   }
   void moveWave(){
       // Change this for speed
-      this.phaseShift += 0.4;
+      this.phaseShift += speed;
   }
 }
 
@@ -123,13 +124,48 @@ int top11Click = 0;
 int top12Click = 0;
 int top13Click = 0;
 int clickCount = 0;
+// Default
+Wave wave0;
+// Rest
 Wave wave1;
+Wave wave2;
+Wave wave3;
+Wave wave4;
+Wave wave5;
+Wave wave6;
+Wave wave7;
+Wave wave8;
+Wave wave9;
+Wave wave10;
+Wave wave11;
+Wave wave12;
+Wave wave13;
+Wave wave14;
+Wave wave15;
+Wave wave16;
+Wave wave17;
+Wave wave18;
+Wave wave19;
+Wave wave20;
+Wave wave21;
+Wave wave22;
+Wave wave23;
+Wave wave24;
+Wave wave25;
+Wave wave26;
+Wave wave27;
+Wave wave28;
+Wave wave29;
+Wave wave30;
+Wave wave31;
+Wave wave32;
+float waveN = 0;
 float mute = 0;
 float record = 0;
 float record_dot = 0;
 float stop = 0;
 float play = 0;
-float GUI_change = 1;
+float GUI_change = 2;
 PFont font;
 String string1 = " Hello and Welcome ";
 String string2 = " Click To Continue ";
@@ -141,9 +177,11 @@ int textWidth;
 void setup() {
   size(1800, 1000);
 
-  // GUI 1
+  // Default Wave
+  wave0 = new Wave(200, 1600, 325, 100, .1,1);
 
   // GUI 2
+  // Middle_keys
   mk1 = new Middle_key(150,450,0);
   mk2 = new Middle_key(250,450,1);
   mk3 = new Middle_key(400,450,0);
@@ -157,7 +195,19 @@ void setup() {
   mk11 = new Middle_key(1350,450,0);
   mk12 = new Middle_key(1450,450,1);
   mk13 = new Middle_key(1600,450,0);
-  wave1 = new Wave(200, 1600, 325, 100, .1);
+  wave1 = new Wave(200, 1600, 325, 100, .1,18); // 2
+  wave2 = new Wave(200, 1600, 325, 100, .1,17); // 3
+  wave3 = new Wave(200, 1600, 325, 100, .1,15); // 5
+  wave4 = new Wave(200, 1600, 325, 100, .1,14); // 6
+  wave5 = new Wave(200, 1600, 325, 100, .1,13); // 7
+  wave6 = new Wave(200, 1600, 325, 100, .1,11); // 9
+  wave7 = new Wave(200, 1600, 325, 100, .1,10); // 10
+  wave8 = new Wave(200, 1600, 325, 100, .1,8); // 12
+  wave9 = new Wave(200, 1600, 325, 100, .1,7); // 13
+  wave10 = new Wave(200, 1600, 325, 100, .1,6); // 14
+  wave11 = new Wave(200, 1600, 325, 100, .1,4); // 16
+  wave12 = new Wave(200, 1600, 325, 100, .1,3); // 17
+  wave13 = new Wave(200, 1600, 325, 100, .1,1); // 19
 
   // Button Pressed
   mk_1 = new Middle_key(150,450,2);
@@ -174,6 +224,28 @@ void setup() {
   mk_12 = new Middle_key(1450,450,2);
   mk_13 = new Middle_key(1600,450,2);
 
+  // Left key
+  wave14 = new Wave(200, 1600, 325, 100, .1,19); // 1
+  wave15 = new Wave(200, 1600, 325, 100, .1,16); // 4
+  wave16 = new Wave(200, 1600, 325, 100, .1,12); // 8
+  wave17 = new Wave(200, 1600, 325, 100, .1,9); // 11
+  wave18 = new Wave(200, 1600, 325, 100, .1,5); // 15
+  wave19 = new Wave(200, 1600, 325, 100, .1,2); // 18
+
+  // Top Key
+  wave20 = new Wave(200, 1600, 325, 100, .1,1.4);
+  wave21 = new Wave(200, 1600, 325, 100, .1,1.3);
+  wave22 = new Wave(200, 1600, 325, 100, .1,1.2);
+  wave23 = new Wave(200, 1600, 325, 100, .1,1.1);
+  wave24 = new Wave(200, 1600, 325, 100, .1,.9);
+  wave25 = new Wave(200, 1600, 325, 100, .1,.8);
+  wave26 = new Wave(200, 1600, 325, 100, .1,.7);
+  wave27 = new Wave(200, 1600, 325, 100, .1,.6);
+  wave28 = new Wave(200, 1600, 325, 100, .1,.5);
+  wave29 = new Wave(200, 1600, 325, 100, .1,.4);
+  wave30 = new Wave(200, 1600, 325, 100, .1,.3);
+  wave31 = new Wave(200, 1600, 325, 100, .1,.2);
+  wave32 = new Wave(200, 1600, 325, 100, .1,.1);
 
 }
 
@@ -221,8 +293,6 @@ void draw() {
 
     }
 
-
-
   }
 
 
@@ -251,6 +321,7 @@ void draw() {
     // Extra Screen: Maybe for the beat??
     fill(0,237,30);
     rect(200, 225, 1400, 200);
+
 
     // Keyboard
     fill(255);
@@ -282,6 +353,7 @@ void draw() {
         clickCount = 0;
         l1Click = 0;
       }
+      waveN = 1;
     }
     fill(300,200,200);
     rect(350,450,50,500);
@@ -290,11 +362,13 @@ void draw() {
         fill(0);
         rect(350,450,50,500);
         clickCount += 1;
+
       }
       else{
         clickCount = 0;
         l2Click = 0;
       }
+      waveN = 4;
     }
     fill(300,200,200);
     rect(700,450,50,500);
@@ -303,11 +377,13 @@ void draw() {
         fill(0);
         rect(700,450,50,500);
         clickCount += 1;
+
       }
       else{
         clickCount = 0;
         l3Click = 0;
       }
+      waveN = 8;
     }
     fill(300,200,200);
     rect(950,450,50,500);
@@ -321,6 +397,7 @@ void draw() {
         clickCount = 0;
         l4Click = 0;
       }
+      waveN = 11;
     }
     fill(300,200,200);
     rect(1300,450,50,500);
@@ -334,6 +411,7 @@ void draw() {
         clickCount = 0;
         l5Click = 0;
       }
+      waveN = 15;
     }
     fill(300,200,200);
     rect(1550,450,50,500);
@@ -347,6 +425,7 @@ void draw() {
         clickCount = 0;
         l6Click = 0;
       }
+      waveN = 18;
     }
 
     // White peices
@@ -360,6 +439,7 @@ void draw() {
         clickCount = 0;
         top1Click = 0;
       }
+      waveN = 20;
     }
     if(top2Click == 1){
       if(clickCount <= 10){
@@ -371,6 +451,7 @@ void draw() {
         clickCount = 0;
         top2Click = 0;
       }
+      waveN = 21;
     }
     if(top3Click == 1){
       if(clickCount <= 10){
@@ -382,6 +463,7 @@ void draw() {
         clickCount = 0;
         top3Click = 0;
       }
+      waveN = 22;
     }
     if(top4Click == 1){
       if(clickCount <= 10){
@@ -393,6 +475,7 @@ void draw() {
         clickCount = 0;
         top4Click = 0;
       }
+      waveN = 23;
     }
     if(top5Click == 1){
       if(clickCount <= 10){
@@ -404,6 +487,7 @@ void draw() {
         clickCount = 0;
         top5Click = 0;
       }
+      waveN = 24;
     }
     if(top6Click == 1){
       if(clickCount <= 10){
@@ -415,6 +499,7 @@ void draw() {
         clickCount = 0;
         top6Click = 0;
       }
+      waveN = 25;
     }
     if(top7Click == 1){
       if(clickCount <= 10){
@@ -426,6 +511,7 @@ void draw() {
         clickCount = 0;
         top7Click = 0;
       }
+      waveN = 26;
     }
     if(top8Click == 1){
       if(clickCount <= 10){
@@ -437,6 +523,7 @@ void draw() {
         clickCount = 0;
         top8Click = 0;
       }
+      waveN = 27;
     }
     if(top9Click == 1){
       if(clickCount <= 10){
@@ -448,6 +535,7 @@ void draw() {
         clickCount = 0;
         top9Click = 0;
       }
+      waveN = 28;
     }
     if(top10Click == 1){
       if(clickCount <= 10){
@@ -459,6 +547,7 @@ void draw() {
         clickCount = 0;
         top10Click = 0;
       }
+      waveN = 29;
     }
     if(top11Click == 1){
       if(clickCount <= 10){
@@ -470,6 +559,7 @@ void draw() {
         clickCount = 0;
         top11Click = 0;
       }
+      waveN = 30;
     }
     if(top12Click == 1){
       if(clickCount <= 10){
@@ -481,6 +571,7 @@ void draw() {
         clickCount = 0;
         top12Click = 0;
       }
+      waveN = 31;
     }
     if(top13Click == 1){
       if(clickCount <= 10){
@@ -492,11 +583,8 @@ void draw() {
         clickCount = 0;
         top13Click = 0;
       }
+      waveN = 32;
     }
-
-
-    wave1.display();
-    wave1.moveWave();
 
 
     // Button Pressed
@@ -510,6 +598,7 @@ void draw() {
         clickCount = 0;
         mk1Click = 0;
       }
+      waveN = 2;
     }
     // mk2
     if(mk2Click == 1){
@@ -521,6 +610,7 @@ void draw() {
         clickCount = 0;
         mk2Click = 0;
       }
+      waveN = 3;
     }
     // mk3
     if(mk3Click == 1){
@@ -532,6 +622,7 @@ void draw() {
         clickCount = 0;
         mk3Click = 0;
       }
+      waveN = 5;
     }
     // mk4
     if(mk4Click == 1){
@@ -543,6 +634,7 @@ void draw() {
         clickCount = 0;
         mk4Click = 0;
       }
+      waveN = 6;
     }
     // mk5
     if(mk5Click == 1){
@@ -554,6 +646,7 @@ void draw() {
         clickCount = 0;
         mk5Click = 0;
       }
+      waveN = 7;
     }
     // mk6
     if(mk6Click == 1){
@@ -565,6 +658,7 @@ void draw() {
         clickCount = 0;
         mk6Click = 0;
       }
+      waveN = 9;
     }
     // mk7
     if(mk7Click == 1){
@@ -576,6 +670,7 @@ void draw() {
         clickCount = 0;
         mk7Click = 0;
       }
+      waveN = 10;
     }
     // mk8
     if(mk8Click == 1){
@@ -587,6 +682,7 @@ void draw() {
         clickCount = 0;
         mk8Click = 0;
       }
+      waveN = 12;
     }
     // mk9
     if(mk9Click == 1){
@@ -598,6 +694,7 @@ void draw() {
         clickCount = 0;
         mk9Click = 0;
       }
+      waveN = 13;
     }
     // mk10
     if(mk10Click == 1){
@@ -609,6 +706,7 @@ void draw() {
         clickCount = 0;
         mk10Click = 0;
       }
+      waveN = 14;
     }
     // mk11
     if(mk11Click == 1){
@@ -620,6 +718,7 @@ void draw() {
         clickCount = 0;
         mk11Click = 0;
       }
+      waveN = 16;
     }
     // mk12
     if(mk12Click == 1){
@@ -631,6 +730,7 @@ void draw() {
         clickCount = 0;
         mk12Click = 0;
       }
+      waveN = 17;
     }
     // mk13
     if(mk13Click == 1){
@@ -642,6 +742,143 @@ void draw() {
         clickCount = 0;
         mk13Click = 0;
       }
+      waveN = 19;
+    }
+
+    // Wave
+
+
+    if(waveN == 0){
+      wave0.display();
+      wave0.moveWave();
+    }
+    else if(waveN == 1){
+      wave1.display();
+      wave1.moveWave();
+    }
+    else if(waveN == 2){
+      wave2.display();
+      wave2.moveWave();
+    }
+    else if(waveN == 3){
+      wave3.display();
+      wave3.moveWave();
+    }
+    else if(waveN == 4){
+      wave4.display();
+      wave4.moveWave();
+    }
+    else if(waveN == 5){
+      wave5.display();
+      wave5.moveWave();
+    }
+    if(waveN == 6){
+      wave6.display();
+      wave6.moveWave();
+    }
+    else if(waveN == 7){
+      wave7.display();
+      wave7.moveWave();
+    }
+    else if(waveN == 8){
+      wave8.display();
+      wave8.moveWave();
+    }
+    else if(waveN == 9){
+      wave9.display();
+      wave9.moveWave();
+    }
+    else if(waveN == 10){
+      wave10.display();
+      wave10.moveWave();
+    }
+    else if(waveN == 11){
+      wave11.display();
+      wave11.moveWave();
+    }
+    else if(waveN == 12){
+      wave12.display();
+      wave12.moveWave();
+    }
+    else if(waveN == 13){
+      wave13.display();
+      wave13.moveWave();
+    }
+    else if(waveN == 14){
+      wave14.display();
+      wave14.moveWave();
+    }
+    else if(waveN == 15){
+      wave15.display();
+      wave15.moveWave();
+    }
+    else if(waveN == 16){
+      wave16.display();
+      wave16.moveWave();
+    }
+    else if(waveN == 17){
+      wave17.display();
+      wave17.moveWave();
+    }
+    else if(waveN == 18){
+      wave18.display();
+      wave18.moveWave();
+    }
+    else if(waveN == 19){
+      wave19.display();
+      wave19.moveWave();
+    }
+    else if(waveN == 20){
+      wave20.display();
+      wave20.moveWave();
+    }
+    else if(waveN == 21){
+      wave21.display();
+      wave21.moveWave();
+    }
+    else if(waveN == 22){
+      wave22.display();
+      wave22.moveWave();
+    }
+    else if(waveN == 23){
+      wave23.display();
+      wave23.moveWave();
+    }
+    else if(waveN == 24){
+      wave24.display();
+      wave24.moveWave();
+    }
+    else if(waveN == 25){
+      wave25.display();
+      wave25.moveWave();
+    }
+    else if(waveN == 26){
+      wave26.display();
+      wave26.moveWave();
+    }
+    else if(waveN == 27){
+      wave27.display();
+      wave27.moveWave();
+    }
+    else if(waveN == 28){
+      wave28.display();
+      wave28.moveWave();
+    }
+    else if(waveN == 29){
+      wave29.display();
+      wave29.moveWave();
+    }
+    else if(waveN == 30){
+      wave30.display();
+      wave30.moveWave();
+    }
+    else if(waveN == 31){
+      wave31.display();
+      wave31.moveWave();
+    }
+    else if(waveN == 32){
+      wave32.display();
+      wave32.moveWave();
     }
 
   }
@@ -694,11 +931,6 @@ void mouseClicked() {
   if(gui2Timer2 > gui2Timer){
     GUI_change = 2;
   }
-
-// mk11 = new Middle_key(1350,450,0);
-// mk12 = new Middle_key(1450,450,1);
-// mk13 = new Middle_key(1600,450,0);
-
 
   // mk1
   if((mouseX >= 50+150 && mouseX <= 100+150 && mouseY >= 450  && mouseY <= 750)||(mouseX >= 150 && mouseX <= 100+150 && mouseY >= 750 && mouseY <= 950)){

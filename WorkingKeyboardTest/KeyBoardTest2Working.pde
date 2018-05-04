@@ -55,11 +55,29 @@ int gui2Timer;
 int gui2Timer2;
 int gui2TimerCycle;
 int textWidth;
+boolean rotation1;
+boolean rotation2;
+boolean recording;
+boolean dot;
+boolean playing;
+boolean stopped;
+boolean muted;
+float velocity1;
+float velocity2;
+int timer = 0;
+
+PlayButton playB;
+StopButton stopB;
+MuteButton muteB;
 
 AudioSample keyNote;
 String keyName;
 ArrayList<AudioSample> keys;
 void setup() {
+  playB = new PlayButton(125, 110);
+  stopB = new StopButton(200, 110);
+  muteB = new MuteButton(1600, 140);
+  
   size(1800, 1000);
   minim = new Minim(this);
   
@@ -119,6 +137,7 @@ void draw() {
     int height1 = 200;
     int center1 = 575;
     int rate1 = 100;
+    
 // int(gui2Timer/20)
     if (string1.length() > string_char){
       for (int i = 0; i < min(string1.length(),string_char); i += 1){
@@ -152,23 +171,72 @@ void draw() {
     noStroke();
     fill(50);
     rect(50, 50, 1700, 900,20);
+    
     // Play
     fill(play);
     ellipse(125, 110, 75, 75);
-
+    if (playing) {
+      if (rotation1) {
+        playB.spin();
+        playB.display2();
+        stopped = false;
+      }
+    }
+    if (rotation1 == false){
+      playB.display1();
+    }
+    
     // Stop
     fill(stop);
     ellipse(200, 110, 75, 75);
+    if (stopped) {
+      if (rotation2) {
+        stopB.spin();
+        stopB.display2();
+        playing = false;
+      }
+    }
+    if (rotation2 == false){
+      stopB.display1();
+    }
 
     // Record
     fill(record);
     ellipse(315, 120, 100, 100);
-    fill(record_dot,0,0);
-    ellipse(315, 120, 30, 30);
-
+    
+    if (recording) {
+      
+      if ((timer < 25) && (timer >= 12)) {
+        record_dot = 255;
+        fill(record_dot, 0, 0);
+        ellipse(315, 120, 30, 30);
+        if (timer == 24){
+          timer = 0;
+        }
+      }
+      else if ((timer >= 0) && (timer < 12)){
+        record_dot = 0;
+        fill(record_dot, 0, 0);
+        ellipse(315, 120, 30, 30);
+      }
+      timer++;
+    }
+    
+    else if (recording == false) {
+        fill(255, 0, 0);
+        ellipse(315, 120, 30, 30);
+    }
+    
     // Mute
     fill(mute);
     ellipse(1600, 140, 125, 125);
+    if (muted) {
+      muteB.spin();
+      muteB.display2();
+    }
+    else {
+      muteB.display1();
+    }
 
     // Extra Screen: Maybe for the beat??
     fill(0,237,30);
@@ -659,43 +727,71 @@ void draw() {
 void mouseClicked() {
   // Record
   if(dist (315,120,mouseX,mouseY) <= 50){
-    if (record_dot < 255 ) {
-      record = 0;
-      record_dot = 255;
-      // 50
-    }
-    else {
-      record = 0;
-      record_dot = 0;
+    if ((playing == false) && (stopped == false)) {
+      if (record_dot < 255 ) {
+        record = 0;
+        record_dot = 255;
+        recording = true;
+      }
+      else {
+        record = 0;
+        record_dot = 0;
+        recording = false;
+      }
     }
   }
   // Mute
   if(dist (1600,140,mouseX,mouseY) <= (125/2)){
     if (mute == 0 ) {
       mute = 105;
+      muted = true;
     }
     else {
       mute = 0;
+      muted = false;
     }
   }
 
   // Stop
   if(dist (200,110,mouseX,mouseY) <= (75/2)){
+    if (recording == false) {
+        if (playing) {
+          playing = false;
+          play = 0;
+          rotation1 = false;
+        }
         if (stop == 0 ) {
-      stop = 145;
-    }
-    else {
-      stop = 0;
+          stop = 145;
+          rotation2 = true;
+          playing = false;
+          stopped = true;
+        }
+        else {
+          stop = 0;
+          rotation2 = false;
+          stopped = false;
+        }
     }
   }
 
   //Play
-  if(dist (125,110,mouseX,mouseY) <= (75/2)){
+  if(dist (125, 110, mouseX, mouseY) <= (75/2)){
+    if (recording == false) {
+        if (stopped) {
+          stopped = false;
+          stop = 0;
+          rotation2 = false;
+        }
         if (play == 0 ) {
-      play = 90;
-    }
-    else {
-      play = 0;
+          play = 90;
+          rotation1 = true;
+          playing = true;
+        }
+        else {
+          play = 0;
+          rotation1 = false;
+          playing = false;
+       }
     }
   }
   // Gui2
